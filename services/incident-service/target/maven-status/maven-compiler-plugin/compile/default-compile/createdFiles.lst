@@ -1,9 +1,0 @@
-com\incidents\incident\IncidentController.class
-com\incidents\incident\IncidentNotFoundException.class
-com\incidents\incident\IncidentRepository.class
-com\incidents\incident\IncidentDataInitializer.class
-com\incidents\incident\Incident.class
-com\incidents\incident\GlobalExceptionHandler.class
-com\incidents\incident\IncidentService.class
-com\incidents\incident\ApiError.class
-com\incidents\incident\IncidentServiceApplication.class
