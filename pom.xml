@@ -1,52 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    
+
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Identification du projet -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.2.1</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.incidents</groupId>
-    <artifactId>incident-management</artifactId>
+    <artifactId>incident-management-system</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>Incident Management System</name>
-    <description>Microservices system for incident management with modern architecture</description>
+    <name>incident-management-system</name>
+    <description>Système de gestion des incidents en architecture microservices</description>
 
-    <!-- Versions partagées -->
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring-boot.version>3.2.1</spring-boot.version>
+        <java.version>17</java.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <!-- Les enfants (services) -->
     <modules>
-        <module>services/eureka-server</module>
-        <module>services/config-server</module>
-        <module>services/gateway</module>
-        <module>services/user-service</module>
-        <module>services/incident-service</module>
-        <module>services/comment-service</module>
-    </modules>
+    <module>services/eureka-server</module>
+    <module>services/config-server</module>
+    <module>services/gateway</module>
+    <module>services/user-service</module>
+    <module>services/incident-service</module>
+    <module>services/comment-service</module>
+    <module>services/notification-service</module>
+    <module>services/chat-service</module>
+</modules>
 
-    <!-- Dépendances partagées -->
     <dependencyManagement>
         <dependencies>
-            <!-- Spring Boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            
-            <!-- Spring Cloud -->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -56,5 +48,16 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 
 </project>

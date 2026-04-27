@@ -4,9 +4,17 @@ import { useNavigate } from 'react-router-dom'
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const navigate = useNavigate()
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault()
+    if (!email || !password) {
+      setError('Veuillez remplir tous les champs.')
+      return
+    }
+    // Stockage simple de l'utilisateur (dev)
+    localStorage.setItem('user', JSON.stringify({ email, role: 'USER' }))
     navigate('/home')
   }
 
@@ -18,7 +26,14 @@ export default function Login() {
           <h1 className="text-3xl font-bold text-white mt-3">IncidentPro</h1>
           <p className="text-gray-400 mt-1">Espace Client</p>
         </div>
-        <div className="space-y-4">
+
+        {error && (
+          <div className="bg-red-500/20 border border-red-500 text-red-400 rounded-lg px-4 py-3 mb-4 text-sm">
+            {error}
+          </div>
+        )}
+
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="text-gray-300 text-sm mb-1 block">Email</label>
             <input
@@ -40,14 +55,18 @@ export default function Login() {
             />
           </div>
           <button
-            onClick={handleLogin}
+            type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-lg transition-colors"
           >
             Se connecter
           </button>
-        </div>
+        </form>
+
         <p className="text-center text-gray-500 text-sm mt-6">
           Problème de connexion ? Contactez votre administrateur
+        </p>
+        <p className="text-center text-gray-600 text-xs mt-2">
+          Démo : <span className="text-gray-400">user1@example.com / n'importe quel mot de passe</span>
         </p>
       </div>
     </div>

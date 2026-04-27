@@ -1,0 +1,3 @@
+com\incidents\gateway\SecurityConfig.class
+com\incidents\gateway\FallbackController.class
+com\incidents\gateway\GatewayApplication.class

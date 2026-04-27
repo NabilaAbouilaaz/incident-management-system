@@ -1,0 +1,7 @@
+com\incidents\chat\ChatController.class
+com\incidents\chat\ApiError.class
+com\incidents\chat\ChatMessageNotFoundException.class
+com\incidents\chat\ChatService.class
+com\incidents\chat\GlobalExceptionHandler.class
+com\incidents\chat\ChatMessage.class
+com\incidents\chat\ChatServiceApplication.class

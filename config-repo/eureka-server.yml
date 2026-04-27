@@ -1,0 +1,3 @@
+custom:
+  service-name: "Eureka configuration loaded from Config Server"
+
